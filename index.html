@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
     <script src="./script.js"></script>
     <link rel="stylesheet" href="index.css">
   </head>
@@ -20,7 +21,7 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
       cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
-        raycaster="objects: [clickevent];">
+      raycaster="objects: [clickevent];">
       
 	   <a-link
 		title="Link Test"
@@ -28,12 +29,14 @@
         scale="3 3"
 		look-at="[gps-camera]"
     clickevent
+    look-controls mouse-cursor
         gps-entity-place="latitude: 37.76798810989435; longitude: -3.7883788347244263;"
       ></a-link>
 
       <!-- using gpsMinDistance: 5 => update GPS only if user moves by 5 meters or more => avoid shaking for near objects -->
         <!-- using accelerationToMove: 1.0 => 'smooth' inertial sensors precision in order to avoid distant places shaking -->
       <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="minDistance: 10;maxDistance: 3000;"  rotation-reader>
+      
       </a-camera>
     </a-scene>
   </body>
