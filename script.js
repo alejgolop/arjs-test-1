@@ -36,9 +36,7 @@ function renderPlaces(places) {
        model.addEventListener('loaded', (ev) => {
 
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-           ev.target.addEventListener('click', () => {
-            alert("Model Click 2!");
-        });
+
         
         });
    
