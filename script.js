@@ -34,10 +34,7 @@ function renderPlaces(places) {
        model.setAttribute('scale', '3 3 3');
 
        model.addEventListener('loaded', (ev) => {
-
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-
-        
         });
    
 
