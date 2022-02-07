@@ -35,7 +35,7 @@ function renderPlaces(places) {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
        });
 
-       model.addEventListener('markerFound', markerFound);
+       model.addEventListener('click', markerClicked);
 
        scene.appendChild(model);
    });
@@ -43,13 +43,13 @@ function renderPlaces(places) {
 
 var clickMarkerRegistry=function()
 {
-    AFRAME.registerComponent('markerhandler', {
+    AFRAME.registerComponent('clickevent', {
         init: function () {
-          this.el.sceneEl.addEventListener('markerFound', markerFound);
+          this.el.sceneEl.addEventListener('click', markerClicked);
       }});  
 }
 
-var markerFound=function ()
+var markerClicked=function ()
 {
-    lert("Marker Found!");
+    lert("Marker Clicked!");
 }
