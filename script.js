@@ -3,13 +3,12 @@ window.onload = () => {
     let places = staticLoadPlaces();
     renderPlaces(places);
     //clickMarkerRegistry();
-    AFRAME.registerComponent('on-mouseenter', {
-        init: function () {
-          this.el.addEventListener('mouseenter', function () {
-            alert("ENTER");
-          });
-        }
-      });
+    AFRAME.registerComponent('clickhandler', {
+        init: function() {
+            this.el.addEventListener('click', () => {
+                alert('Clicked!')
+            });
+    }});
 };
 
 function staticLoadPlaces() {
@@ -17,8 +16,8 @@ function staticLoadPlaces() {
        {
            name: 'Robot',
            location: {
-               lat: 37.76471432656511,
-               lng: -3.791503608226776,
+               lat: 37.76403580411803
+               lng: -3.7913319468498234,
            }
        },
    ];
