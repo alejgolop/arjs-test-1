@@ -12,6 +12,7 @@
 
 <script>
     AFRAME.registerComponent('clickhandler', {
+        schema: {},
         init: function() {
             this.el.addEventListener('click', () => {
                 alert('Clicked!')
@@ -32,8 +33,9 @@
             scale="20 20 20"
             gps-entity-place="latitude: 37.76471432656511; longitude: -3.791503608226776;">
         </a-box>
-        <a-entity cursor="rayOrigin:mouse"></a-entity>
+        
         <a-camera gps-camera rotation-reader>
+          <a-entity cursor="rayOrigin:mouse"></a-entity>
 		</a-camera>
 	</a-scene>
 </body>
