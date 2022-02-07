@@ -38,7 +38,10 @@ function renderPlaces(places) {
        });
 
        model.setAttribute('clickhandler', '');
-
+       model.addEventListener('click', () => {
+        alert("Model Click!");
+    });
+  
        scene.appendChild(model);
    });
 }
