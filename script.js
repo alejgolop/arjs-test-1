@@ -16,7 +16,7 @@ function staticLoadPlaces() {
        {
            name: 'Robot',
            location: {
-               lat: 37.76403580411803
+               lat: 37.76403580411803,
                lng: -3.7913319468498234,
            }
        },
