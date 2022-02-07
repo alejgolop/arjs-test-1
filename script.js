@@ -3,6 +3,15 @@ window.onload = () => {
     let places = staticLoadPlaces();
     renderPlaces(places);
     clickMarkerRegistry();
+    AFRAME.registerComponent('collider-check', {
+        dependencies: ['raycaster'],
+      
+        init: function () {
+          this.el.addEventListener('raycaster-intersection', function () {
+            alert('Player hit something!');
+          });
+        }
+      });
 };
 
 function staticLoadPlaces() {
@@ -55,5 +64,5 @@ var clickMarkerRegistry=function()
 
 var markerClicked=function ()
 {
-    lert("Marker Clicked!");
+    alert("Marker Clicked!");
 }
