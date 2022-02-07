@@ -36,9 +36,6 @@ function renderPlaces(places) {
        model.addEventListener('loaded', () => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
            alert("Model loaded");
-           this.addEventListener('click', () => {
-            alert("Model Click!");
-        });
        });
 
        model.setAttribute('clickhandler', '');
@@ -47,5 +44,15 @@ function renderPlaces(places) {
     });
   
        scene.appendChild(model);
+
+       model = document.createElement('a-box');
+       model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+       model.setAttribute('rotation', '0 0 0');
+       model.setAttribute('material', "color: red;");
+       model.setAttribute('scale', '10 10 10');
+       model.setAttribute('clickhandler', '');
+       scene.appendChild(model);
+
+
    });
 }
