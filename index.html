@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <div class="arjs-loader">
-      <div>Loading, please wait...</div>
-    </div>
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
@@ -28,14 +25,17 @@
 		title="Link Test"
         scale="3 3"
 		look-at="[gps-camera]"
-    on-mouseenter
         gps-entity-place="latitude: 37.76798810989435; longitude: -3.7883788347244263;"
         onclick="clickListener()"
       ></a-link>
 
+
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" scale="3 3"  gps-entity-place="latitude: 37.767746397686516; longitude: -3.787896037101745;"
+      onclick="clickListener()"></a-box>
+
       <!-- using gpsMinDistance: 5 => update GPS only if user moves by 5 meters or more => avoid shaking for near objects -->
         <!-- using accelerationToMove: 1.0 => 'smooth' inertial sensors precision in order to avoid distant places shaking -->
-      <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="minDistance: 10;maxDistance: 3000;"  rotation-reader>
+      <a-camera gps-camera rotation-reader>
       
       </a-camera>
     </a-scene>
