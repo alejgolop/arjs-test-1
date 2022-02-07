@@ -1,11 +1,9 @@
 
 window.onload = () => {
 
-   
     let places = staticLoadPlaces();
     renderPlaces(places);
-    //clickMarkerRegistry();
-    
+
 };
 
 function staticLoadPlaces() {
@@ -39,35 +37,8 @@ function renderPlaces(places) {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
        });
 
-       model.addEventListener('click', clickListener);
+       model.setAttribute('clickhandler', '');
 
        scene.appendChild(model);
    });
 }
-
-var clickMarkerRegistry=function()
-{
-    AFRAME.registerComponent('clickevent', {
-        init: function () {
-          this.el.sceneEl.addEventListener('click', markerClicked);
-      }});  
-}
-
-var markerClicked=function ()
-{
-    alert("Marker Clicked!");
-}
-
-
-const clickListener = function (ev) {
-    ev.stopPropagation();
-    ev.preventDefault();
-
-    const name = ev.target.getAttribute('name');
-
-    const el = ev.detail.intersection && ev.detail.intersection.object.el;
-
-    if (el && el === ev.target) {
-       alert("click!");
-    }
-};
