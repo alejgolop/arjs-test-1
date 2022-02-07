@@ -36,8 +36,8 @@ function renderPlaces(places) {
        model.addEventListener('loaded', (ev) => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
            let tree3D = ev.target.getObject3D('mesh');
-           tree3D.addEventListener('tree3D click', () => {
-            alert("Model Click!");
+           tree3D.addEventListener('click', () => {
+            alert("tree3D Click!");
         });
        });
 
