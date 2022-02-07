@@ -1,3 +1,4 @@
+
 window.onload = () => {
     let places = staticLoadPlaces();
     renderPlaces(places);
@@ -40,7 +41,7 @@ function renderPlaces(places) {
    });
 }
 
-clickMarkerRegistry()
+var clickMarkerRegistry=function()
 {
     AFRAME.registerComponent('markerhandler', {
         init: function () {
