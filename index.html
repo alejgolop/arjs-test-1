@@ -15,6 +15,9 @@
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="//cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
     <script>
       AFRAME.registerComponent("event-listener", {
@@ -28,17 +31,20 @@
 
   </head>
   <body>
-    <a-scene>
+    <a-scene
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+    raycaster="objects: [event-listener];">
 
-      <a-box event-listener position="-1 0.5 -3" rotation="0 45 0"
+      <a-box event-listener gps-entity-place="latitude: 37.763914941654; longitude: -3.7916108965873714;" rotation="0 45 0"
              color="#4CC3D9" shadow></a-box>
      
 
-      <a-entity movement-controls="fly: true" position="0 0 0">
-        <a-entity camera position="0 1.6 0" look-controls></a-entity>
-        <a-entity cursor="rayOrigin:mouse"></a-entity>
-        <a-entity laser-controls="hand: right"></a-entity>
-      </a-entity>
+             <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="minDistance: 10;maxDistance: 3000;"  rotation-reader>
+      
+            </a-camera>
+      <a-entity cursor="rayOrigin:mouse"></a-entity>
 
     </a-scene>
   </body>
