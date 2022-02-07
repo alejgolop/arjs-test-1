@@ -41,9 +41,8 @@ function renderPlaces(places) {
        model.addEventListener('loaded', () => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
        });
-       model.addEventListener('mouseenter', function () {
-        alert("ENTER");
-      });
+
+       model.addEventListener('click', clickListener);
 
        scene.appendChild(model);
    });
@@ -61,3 +60,17 @@ var markerClicked=function ()
 {
     alert("Marker Clicked!");
 }
+
+
+const clickListener = function (ev) {
+    ev.stopPropagation();
+    ev.preventDefault();
+
+    const name = ev.target.getAttribute('name');
+
+    const el = ev.detail.intersection && ev.detail.intersection.object.el;
+
+    if (el && el === ev.target) {
+       alert("click!");
+    }
+};
