@@ -31,7 +31,7 @@ function renderPlaces(places) {
        model.setAttribute('gltf-model', 'https://umacontainer.s3.eu-west-1.amazonaws.com/3D/407.gltf');
        model.setAttribute('rotation', '0 0 0');
        model.setAttribute('animation-mixer', '');
-       model.setAttribute('scale', '10 10 10');
+       model.setAttribute('scale', '3 3 3');
 
        model.addEventListener('loaded', () => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
