@@ -6,11 +6,15 @@
     <title>GeoAR.js demo</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <!--<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>-->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   </head>
 
   <script src="./script.js"></script>
   <body style="margin: 0; overflow: hidden;">
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
@@ -20,9 +24,12 @@
 		title="Link Test"
         scale="3 3"
 		look-at="[gps-camera]"
+    markerhandler
         gps-entity-place="latitude: 37.770271615184306; longitude: -3.787635862827301;"
       ></a-link>
 
+      <!-- using gpsMinDistance: 5 => update GPS only if user moves by 5 meters or more => avoid shaking for near objects -->
+        <!-- using accelerationToMove: 1.0 => 'smooth' inertial sensors precision in order to avoid distant places shaking -->
       <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="minDistance: 10;maxDistance: 3000;"  rotation-reader> </a-camera>
     </a-scene>
   </body>

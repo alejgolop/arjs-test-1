@@ -1,6 +1,7 @@
 window.onload = () => {
     let places = staticLoadPlaces();
     renderPlaces(places);
+    clickMarkerRegistry();
 };
 
 function staticLoadPlaces() {
@@ -33,6 +34,21 @@ function renderPlaces(places) {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
        });
 
+       model.addEventListener('markerFound', markerFound);
+
        scene.appendChild(model);
    });
+}
+
+clickMarkerRegistry()
+{
+    AFRAME.registerComponent('markerhandler', {
+        init: function () {
+          this.el.sceneEl.addEventListener('markerFound', markerFound);
+      }});  
+}
+
+var markerFound=function ()
+{
+    lert("Marker Found!");
 }
