@@ -44,13 +44,13 @@ function renderPlaces(places) {
   
        scene.appendChild(model);
 
-       model = document.createElement('a-box');
+      /* model = document.createElement('a-box');
        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
        model.setAttribute('rotation', '0 0 0');
        model.setAttribute('material', "color: green;");
        model.setAttribute('scale', '10 10 10');
        model.setAttribute('clickhandler', '');
-       scene.appendChild(model);
+       scene.appendChild(model);*/
 
 
    });
