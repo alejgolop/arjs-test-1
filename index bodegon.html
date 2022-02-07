@@ -20,7 +20,16 @@
       AFRAME.registerComponent("event-listener", {
         init: function() {
           this.el.addEventListener("click", function(e) {
-              alert("Click");
+            console.log(e.target)
+            e.target.setAttribute('scale', {x: 2, y: 2, z: 2});
+            });
+          this.el.addEventListener("mouseenter", function(e) {
+            console.log(e.target)
+            e.target.setAttribute('scale', {x: 1.5, y: 1.5, z: 1.5});
+            });
+          this.el.addEventListener("mouseleave", function(e) {
+            console.log(e.target)
+            e.target.setAttribute('scale', {x: 1, y: 1, z: 1});
             });
           }
       });
@@ -32,7 +41,13 @@
 
       <a-box event-listener position="-1 0.5 -3" rotation="0 45 0"
              color="#4CC3D9" shadow></a-box>
-     
+      <a-sphere event-listener position="0 1.25 -5" radius="1.25"
+                color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder event-listener position="1 0.75 -3" radius="0.5"
+                  height="1.5" color="#FFC65D" shadow></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4"
+               color="#7BC8A4" shadow></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
 
       <a-entity movement-controls="fly: true" position="0 0 0">
         <a-entity camera position="0 1.6 0" look-controls></a-entity>
