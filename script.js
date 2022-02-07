@@ -2,13 +2,11 @@
 window.onload = () => {
     let places = staticLoadPlaces();
     renderPlaces(places);
-    clickMarkerRegistry();
-    AFRAME.registerComponent('collider-check', {
-        dependencies: ['raycaster'],
-      
+    //clickMarkerRegistry();
+    AFRAME.registerComponent('on-mouseenter', {
         init: function () {
-          this.el.addEventListener('raycaster-intersection', function () {
-            alert('Player hit something!');
+          this.el.addEventListener('mouseenter', function () {
+            alert("ENTER");
           });
         }
       });
@@ -43,12 +41,6 @@ function renderPlaces(places) {
        model.addEventListener('loaded', () => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
        });
-
-       model.addEventListener('click', markerClicked);
-       model.addEventListener('onclick', markerClicked);
-       model.addEventListener('touch', markerClicked);
-       model.addEventListener('touchstart', markerClicked);
-       model.addEventListener('mouseenter', markerClicked);
 
        scene.appendChild(model);
    });
