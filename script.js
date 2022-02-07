@@ -1,13 +1,7 @@
 
 window.onload = () => {
 
-    AFRAME.registerComponent('clickhandler', {
-        init: function() {
-            this.el.addEventListener('click', () => {
-                alert('Clicked!')
-            });
-    }});
-
+   
     let places = staticLoadPlaces();
     renderPlaces(places);
     //clickMarkerRegistry();
