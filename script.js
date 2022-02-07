@@ -17,12 +17,13 @@ function staticLoadPlaces() {
        {
            name: 'Robot',
            location: {
-               lat: 37.76786937417169,
-               lng: -3.7873166799545284,
+               lat: 37.76471432656511,
+               lng: -3.791503608226776,
            }
        },
    ];
 }
+
 
 function renderPlaces(places) {
    let scene = document.querySelector('a-scene');
