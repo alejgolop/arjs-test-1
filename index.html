@@ -11,12 +11,13 @@
 </head>
 
 <script>
-    AFRAME.registerComponent('clickhandler', {
-        schema: {},
-        init: function() {
-            this.el.addEventListener('click', () => {
-                alert('Clicked!')
-            });
+    AFRAME.registerComponent('clickhandler',, {
+  events: {
+    click: function (evt) {
+      alert('This entity was clicked!');
+      this.el.setAttribute('material', 'color', 'green');
+    }
+  }
     }});
 </script>
 
