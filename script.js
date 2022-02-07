@@ -36,6 +36,10 @@ function renderPlaces(places) {
        });
 
        model.addEventListener('click', markerClicked);
+       model.addEventListener('onclick', markerClicked);
+       model.addEventListener('touch', markerClicked);
+       model.addEventListener('touchstart', markerClicked);
+       model.addEventListener('mouseenter', markerClicked);
 
        scene.appendChild(model);
    });
