@@ -34,16 +34,18 @@ function renderPlaces(places) {
        model.setAttribute('scale', '3 3 3');
 
        model.addEventListener('loaded', (ev) => {
-           window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-           let tree3D = ev.target.getObject3D('mesh');
-           tree3D.addEventListener('click', () => {
-            alert("tree3D Click!");
+
+           window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
+           ev.target.addEventListener('click', () => {
+            alert("Model Click 2!");
         });
-       });
+        
+        });
+   
 
        model.setAttribute('clickhandler', '');
        model.addEventListener('click', () => {
-        alert("Model Click!");
+        alert("Model Click 1!");
     });
   
        scene.appendChild(model);
