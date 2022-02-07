@@ -11,14 +11,14 @@
 </head>
 
 <script>
-    AFRAME.registerComponent('clickhandler',, {
+    AFRAME.registerComponent('clickhandler', {
   events: {
     click: function (evt) {
       alert('This entity was clicked!');
       this.el.setAttribute('material', 'color', 'green');
     }
   }
-    }});
+    });
 </script>
 
 <body style='margin: 0; overflow: hidden;'>
