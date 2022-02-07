@@ -1,51 +1,39 @@
 <!DOCTYPE html>
-<!-- Selection in desktop and Oculus Go
-  When in desktop:
-   Click, mouseenter and mouseleave on objects with the corresponding
-   behaviors, activated with the desktop mouse.
-   Thanks to 'cursor="rayOrigin:mouse"' in the scene.
-  When in Oculus Go:
-   Click, mouseenter and mouseleave on objects with the corresponding
-   behaviors, activated with the ray controlled with the Go control
-   (using the trigger to activate "click").
-   Thanks to the laser-controls element.
-  -->
-
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="//cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GeoAR.js demo</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
     <script>
       AFRAME.registerComponent("event-listener", {
         init: function() {
           this.el.addEventListener("click", function(e) {
-              alert("Click");
+            alert("Click");
             });
           }
       });
     </script>
 
   </head>
-  <body>
+
+  <body style="margin: 0; overflow: hidden;">
     <a-scene
-    vr-mode-ui="enabled: false"
-    embedded
-    arjs="sourceType: webcam; debugUIEnabled: false;"
-    
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-
-      <a-box event-listener raycaster="objects: .clickable" class="clickable" gps-entity-place="latitude: 37.763914941654; longitude: -3.7916108965873714;" rotation="0 45 0"
-             color="#4CC3D9" shadow></a-box>
-     
-
-             <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="minDistance: 10;maxDistance: 3000;"  rotation-reader>
-      
-            </a-camera>
-      <a-entity cursor="rayOrigin:mouse"></a-entity>
-
+      <a-text
+        value="This content will always face you."
+        look-at="[gps-camera]"
+        scale="120 120 120"
+        gps-entity-place="latitude:37.763914941654; longitude:-3.7916108965873714;"
+        event-listener
+      ></a-text>
+      <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
 </html>
