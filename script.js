@@ -33,7 +33,7 @@ function renderPlaces(places) {
        model.setAttribute('animation-mixer', '');
        model.setAttribute('scale', '3 3 3');
 
-       model.addEventListener('loaded', (e) => {
+       model.addEventListener('loaded', (el) => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
            let tree3D = el.getObject3D('mesh');
            tree3D.addEventListener('tree3D click', () => {
