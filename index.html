@@ -25,12 +25,18 @@
         scale="3 3"
 		look-at="[gps-camera]"
     clickevent
-        gps-entity-place="latitude: 37.768965552081085; longitude: -3.788089156150818;"
+        gps-entity-place="latitude: 37.76798810989435; longitude: -3.7883788347244263;"
       ></a-link>
 
       <!-- using gpsMinDistance: 5 => update GPS only if user moves by 5 meters or more => avoid shaking for near objects -->
         <!-- using accelerationToMove: 1.0 => 'smooth' inertial sensors precision in order to avoid distant places shaking -->
-      <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="minDistance: 10;maxDistance: 3000;"  rotation-reader> </a-camera>
+      <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="minDistance: 10;maxDistance: 3000;"  rotation-reader>
+        <a-entity cursor="fuse: true; fuseTimeout: 500"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+            material="color: black; shader: flat">
+      </a-entity>
+      </a-camera>
     </a-scene>
   </body>
 </html>
