@@ -51,10 +51,16 @@ function renderPlaces(places) {
              return;
            }
            bbox = new THREE.Box3().setFromObject(mesh);
-           bbox.addEventListener('click', () => {
+           var width=bbox.max.x-bbox.min.x;
+           var height=bbox.max.y-bbox.min.y;
+           var depth=bbox.max.z-bbox.min.z;
+           var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth), new THREE.MeshLambertMaterial({ color : 0xFFF0FF }) );
+
+
+           /*bbox.addEventListener('click', () => {
             alert("bbox Click!");
-        });
-          el.appendChild(bbox);
+        });*/
+          el.appendChild(box);
           window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
         });
    
