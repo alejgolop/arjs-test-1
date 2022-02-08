@@ -12,13 +12,17 @@ window.onload = () => {
 
 function onMouseClick( event ) {
     console.log("Mouse Clicked");
-	mouse.x = ( event.clientX / window.innerWidth );
-    mouse.y = - ( event.clientY / window.innerHeight );
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
     let camera = document.querySelector("[camera]").getObject3D('camera');
     raycaster.setFromCamera( mouse, camera );
-    console.log(scene.children);
-    console.log(raycaster.intersectObject(box));
-    var intersects = raycaster.intersectObject(box);
+    const intersects = raycaster.intersectObjects( scene.children );
+
+	for ( let i = 0; i < intersects.length; i ++ ) {
+
+		console.log(intersects[ i ].object);
+
+	}
     col=intersects;
     alert("Intersects: "+intersects.length);
 }
