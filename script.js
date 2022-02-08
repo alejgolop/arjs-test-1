@@ -1,10 +1,25 @@
 
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
 window.onload = () => {
 
     let places = staticLoadPlaces();
     renderPlaces(places);
 
+    window.addEventListener( 'click', onMouseClick, false );
+
 };
+
+function onMouseClick( event ) {
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    raycaster.setFromCamera( mouse, camera );
+    var intersects = raycaster.intersectObjects(scene.children);
+    alert("Intersects: "+intersects.length);
+}
+
+
+window.addEventListener( 'click', onMouseClick, false );
 
 function staticLoadPlaces() {
    return [
@@ -20,10 +35,10 @@ function staticLoadPlaces() {
 
 var bbox;
 var box;
-
+let scene;
 
 function renderPlaces(places) {
-   let scene = document.querySelector('a-scene');
+   scene = document.querySelector('a-scene');
 
    places.forEach((place) => {
        let latitude = place.location.lat;
