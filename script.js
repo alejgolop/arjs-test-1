@@ -16,6 +16,7 @@ function onMouseClick( event ) {
     mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
     let camera = document.querySelector("[camera]").getObject3D('camera');
     raycaster.setFromCamera( mouse, camera );
+    var scene = document.querySelector('a-scene').setObject3D('mesh');
     const intersects = raycaster.intersectObjects( scene.children );
 
 	for ( let i = 0; i < intersects.length; i ++ ) {
@@ -45,10 +46,9 @@ function staticLoadPlaces() {
 
 var bbox;
 var box;
-let scene;
 
 function renderPlaces(places) {
-   scene = document.querySelector('a-scene');
+   let scene = document.querySelector('a-scene');
 
    places.forEach((place) => {
        let latitude = place.location.lat;
