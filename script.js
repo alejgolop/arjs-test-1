@@ -49,7 +49,6 @@ function renderPlaces(places) {
              console.log("NO mesh");
              return;
            }
-           mesh.geometry.computeBoundingBox();
            bbox = new THREE.Box3().setFromObject(mesh,true);
            console.log(bbox);
            var width=bbox.max.x-bbox.min.x;
