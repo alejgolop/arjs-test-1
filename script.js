@@ -19,6 +19,7 @@ function staticLoadPlaces() {
 }
 
 var bbox;
+var box;
 
 
 function renderPlaces(places) {
@@ -56,7 +57,7 @@ function renderPlaces(places) {
            var depth=bbox.max.z-bbox.min.z;
            console.log(width,height,depth);
 
-           var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),new THREE.MeshLambertMaterial({
+           box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),new THREE.MeshLambertMaterial({
             color: 0x00FF00
           }));
            mesh.add(box);
