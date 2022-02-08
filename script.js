@@ -56,8 +56,7 @@ function renderPlaces(places) {
            
            const material = new THREE.MeshPhongMaterial({
             color: 0xFF0000,
-            opacity: 0.5,
-            transparent: true,
+            opacity: 0.5
           });
 
            var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),material);
