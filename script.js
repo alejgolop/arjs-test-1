@@ -39,6 +39,7 @@ function renderPlaces(places) {
 
        model.addEventListener('loaded', (ev) => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
+           console.log("Mesh Loaded");
         });
    
 
