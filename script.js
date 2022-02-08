@@ -49,10 +49,12 @@ function renderPlaces(places) {
              console.log("NO mesh");
              return;
            }
-           bbox = new THREE.Box3().setFromObject(mesh);
-           var width=bbox.max.x/10;
-           var height=bbox.max.y/10;
-           var depth=bbox.max.z/10;
+           mesh.geometry.computeBoundingBox();
+           bbox = new THREE.Box3().setFromObject(mesh,true);
+           console.log(bbox);
+           var width=bbox.max.x-bbox.min.x;
+           var height=bbox.max.y-bbox.min.y;
+           var depth=bbox.max.z-bbox.min.z;
            
            var material1 = new THREE.MeshLambertMaterial({
             color: 0x00FF00
