@@ -52,9 +52,9 @@ function renderPlaces(places) {
            }
            bbox = new THREE.Box3().setFromObject(mesh);
            console.log(bbox);
-           var width=(bbox.max.x-bbox.min.x)/5.0;
-           var height=(bbox.max.y-bbox.min.y)/5.0;
-           var depth=(bbox.max.z-bbox.min.z)/5.0;
+           var width=(bbox.max.x-bbox.min.x);
+           var height=(bbox.max.y-bbox.min.y);
+           var depth=(bbox.max.z-bbox.min.z);
            //alert(width+" "+height+" "+depth);
 
            box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),new THREE.MeshLambertMaterial({
@@ -62,7 +62,7 @@ function renderPlaces(places) {
           }));
           //box.translateOnAxis(new THREE.Vector3( 0, 1, 0 ),(bbox.max.y-bbox.min.y)/2);
            mesh.add(box);
-           box.translateOnAxis(new THREE.Vector3( 0, 1, 0 ),(bbox.max.y-bbox.min.y)/2);
+           //box.translateOnAxis(new THREE.Vector3( 0, 1, 0 ),(bbox.max.y-bbox.min.y)/2);
 
            /*bbox.addEventListener('click', () => {
             alert("bbox Click!");
