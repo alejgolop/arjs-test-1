@@ -54,9 +54,7 @@ function renderPlaces(places) {
            var height=bbox.max.y;
            var depth=bbox.max.z;
            var material1 = new THREE.MeshPhongMaterial({
-            color: 0xFFFFFF,
-            opacity: 0.5,
-            transparent: true,
+            color: 0xFFFFFF
           });
 
            var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),material1);
