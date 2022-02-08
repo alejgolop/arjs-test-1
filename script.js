@@ -19,9 +19,11 @@ function onMouseClick( event ) {
     console.log(scene.children);
     console.log(raycaster.intersectObjects);
     var intersects = raycaster.intersectObjects(scene.children);
+    col=intersects;
     alert("Intersects: "+intersects.length);
 }
 
+var col;
 
 window.addEventListener( 'click', onMouseClick, false );
 
