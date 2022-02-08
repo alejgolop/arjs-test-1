@@ -21,7 +21,7 @@ function onMouseClick( event ) {
 
 	for ( let i = 0; i < intersects.length; i ++ ) {
 
-		console.log(intersects[ i ].object);
+		console.log("Int: "+intersects[ i ].object);
 
 	}
     col=intersects;
