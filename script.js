@@ -52,14 +52,15 @@ function renderPlaces(places) {
            }
            bbox = new THREE.Box3().setFromObject(mesh);
            console.log(bbox);
-           var width=(bbox.max.x-bbox.min.x)/20.0;
-           var height=(bbox.max.y-bbox.min.y)/20.0;
-           var depth=(bbox.max.z-bbox.min.z)/20.0;
+           var width=(bbox.max.x-bbox.min.x)/10.0;
+           var height=(bbox.max.y-bbox.min.y)/10.0;
+           var depth=(bbox.max.z-bbox.min.z)/10.0;
            alert(width+" "+height+" "+depth);
 
            box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),new THREE.MeshLambertMaterial({
             color: 0x00FF00
           }));
+          box.translate(0,height,0);
            mesh.add(box);
 
            /*bbox.addEventListener('click', () => {
