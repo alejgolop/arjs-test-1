@@ -53,11 +53,14 @@ function renderPlaces(places) {
            var width=bbox.max.x;
            var height=bbox.max.y;
            var depth=bbox.max.z;
-           var material1 = new THREE.MeshPhongMaterial({
-            color: 0xFFFFFF
+           
+           const material = new THREE.MeshPhongMaterial({
+            color: 0xFF0000,
+            opacity: 0.5,
+            transparent: true,
           });
 
-           var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),material1);
+           var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),material);
            mesh.add(box);
 
            /*bbox.addEventListener('click', () => {
