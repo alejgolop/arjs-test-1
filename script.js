@@ -38,8 +38,11 @@ function renderPlaces(places) {
 
        model.addEventListener('loaded', (ev) => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-           console.log("Mesh Loaded");
-           console.log(ev.target);
+        });
+
+        model.addEventListener('model-loaded', (ev) => {
+            console.log("3D Object loaded");
+            console.log(ev.target);
            const el = ev.target;
            const mesh = el.getObject3D('mesh');
            console.log(el);
@@ -52,9 +55,8 @@ function renderPlaces(places) {
             alert("bbox Click!");
         });
           el.appendChild(bbox);
+          window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
         });
-
-        model.addEventListener('model-loaded', () => { console.log("3D Object loaded")});
    
 
        //model.setAttribute('clickhandler', '');
