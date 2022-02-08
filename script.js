@@ -17,7 +17,7 @@ function onMouseClick( event ) {
     let camera = document.querySelector("[camera]").getObject3D('camera');
     raycaster.setFromCamera( mouse, camera );
     var scene = document.querySelector('a-scene').object3D;
-    const intersects = raycaster.intersectObjects( scene.children );
+    const intersects = raycaster.intersectObjects( scene.children,false  );
 
 	for ( let i = 0; i < intersects.length; i ++ ) {
 
@@ -67,16 +67,16 @@ function renderPlaces(places) {
         });
 
         model.addEventListener('model-loaded', (ev) => {
-            console.log("3D Object loaded");
+            //console.log("3D Object loaded");
            const el = ev.target;
            const mesh = el.getObject3D('mesh');
-           console.log(el);
+           //console.log(el);
            if (!mesh){
              console.log("NO mesh");
              return;
            }
            bbox = new THREE.Box3().setFromObject(mesh);
-           console.log(bbox);
+           //console.log(bbox);
            var width=(bbox.max.x-bbox.min.x)/2;
            var height=(bbox.max.y-bbox.min.y)/2;
            var depth=(bbox.max.z-bbox.min.z)/2;
