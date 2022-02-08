@@ -18,6 +18,7 @@ function staticLoadPlaces() {
    ];
 }
 
+var bbox;
 
 function renderPlaces(places) {
    let scene = document.querySelector('a-scene');
