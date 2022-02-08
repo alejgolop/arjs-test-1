@@ -50,9 +50,9 @@ function renderPlaces(places) {
              return;
            }
            bbox = new THREE.Box3().setFromObject(mesh);
-           var width=bbox.max.x/2;
-           var height=bbox.max.y/2;
-           var depth=bbox.max.z/2;
+           var width=bbox.max.x/4;
+           var height=bbox.max.y/4;
+           var depth=bbox.max.z/4;
            
            var material1 = new THREE.MeshLambertMaterial({
             color: 0x00FF00
@@ -64,7 +64,6 @@ function renderPlaces(places) {
            /*bbox.addEventListener('click', () => {
             alert("bbox Click!");
         });*/
-          //el.appendChild(box);
           window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
         });
    
@@ -75,15 +74,6 @@ function renderPlaces(places) {
     });*/
   
        scene.appendChild(model);
-
-      /* model = document.createElement('a-box');
-       model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-       model.setAttribute('rotation', '0 0 0');
-       model.setAttribute('material', "color: green;");
-       model.setAttribute('scale', '10 10 10');
-       model.setAttribute('clickhandler', '');
-       scene.appendChild(model);*/
-
 
    });
 }
