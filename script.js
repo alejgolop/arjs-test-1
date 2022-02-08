@@ -50,9 +50,9 @@ function renderPlaces(places) {
              return;
            }
            bbox = new THREE.Box3().setFromObject(mesh);
-           var width=bbox.max.x/4;
-           var height=bbox.max.y/4;
-           var depth=bbox.max.z/4;
+           var width=bbox.max.x/10;
+           var height=bbox.max.y/10;
+           var depth=bbox.max.z/10;
            
            var material1 = new THREE.MeshLambertMaterial({
             color: 0x00FF00
