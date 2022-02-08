@@ -6,7 +6,7 @@ window.onload = () => {
     let places = staticLoadPlaces();
     renderPlaces(places);
 
-    window.addEventListener( 'click', onMouseClick, false );
+    window.addEventListener( 'mouseup', onMouseClick, false );
 
 };
 
@@ -77,7 +77,7 @@ function renderPlaces(places) {
            box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),new THREE.MeshLambertMaterial({
             color: 0x00FF00
           }));
-            box.translateOnAxis(new THREE.Vector3( 0, 1, 0 ),height);
+            //box.translateOnAxis(new THREE.Vector3( 0, 1, 0 ),height);
            mesh.add(box);
 
 
