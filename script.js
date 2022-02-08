@@ -42,7 +42,6 @@ function renderPlaces(places) {
 
         model.addEventListener('model-loaded', (ev) => {
             console.log("3D Object loaded");
-            console.log(ev.target);
            const el = ev.target;
            const mesh = el.getObject3D('mesh');
            console.log(el);
@@ -55,12 +54,12 @@ function renderPlaces(places) {
            var height=bbox.max.y-bbox.min.y;
            var depth=bbox.max.z-bbox.min.z;
            var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth), new THREE.MeshLambertMaterial({ color : 0xFFF0FF }) );
-
+           mesh.add(box);
 
            /*bbox.addEventListener('click', () => {
             alert("bbox Click!");
         });*/
-          el.appendChild(box);
+          //el.appendChild(box);
           window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
         });
    
