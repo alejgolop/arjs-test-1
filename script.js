@@ -16,6 +16,7 @@ function onMouseClick( event ) {
     mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
     let camera = document.querySelector("[camera]").getObject3D('camera');
     raycaster.setFromCamera( mouse, camera );
+    console.log(scene.children);
     var intersects = raycaster.intersectObjects(scene.children);
     alert("Intersects: "+intersects.length);
 }
