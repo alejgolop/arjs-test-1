@@ -12,8 +12,15 @@ window.onload = () => {
 
 function onMouseClick( event ) {
     console.log("Mouse Clicked");
-	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+    var renderer=document.querySelector('a-scene').renderer;
+    var rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ( ( event.clientX - rect.left ) / ( rect.width - rect.left ) ) * 2 - 1;
+    mouse.y = - ( ( event.clientY - rect.top ) / ( rect.bottom - rect.top) ) * 2 + 1;
+
+
+	//mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    //mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
     let camera = document.querySelector("[camera]").getObject3D('camera');
     raycaster.setFromCamera( mouse, camera );
     var scene = document.querySelector('a-scene').object3D;
