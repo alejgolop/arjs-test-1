@@ -19,6 +19,12 @@ function staticLoadPlaces() {
 }
 
 var bbox;
+var model;
+var loaded=function()
+{
+    model.setAttribute('bboxed', '');
+    window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
+}
 
 function renderPlaces(places) {
    let scene = document.querySelector('a-scene');
@@ -27,17 +33,15 @@ function renderPlaces(places) {
        let latitude = place.location.lat;
        let longitude = place.location.lng;
 
-       let model = document.createElement('a-entity');
+       model = document.createElement('a-entity');
        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
        model.setAttribute('gltf-model', 'https://umacontainer.s3.eu-west-1.amazonaws.com/3D/407.gltf');
        model.setAttribute('rotation', '0 0 0');
        model.setAttribute('animation-mixer', '');
        model.setAttribute('scale', '3 3 3');
-       model.setAttribute('bboxed', '');
+       
 
-       model.addEventListener('loaded', (ev) => {
-           window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-        });
+       model.addEventListener('loaded', loaded);
    
 
        //model.setAttribute('clickhandler', '');
