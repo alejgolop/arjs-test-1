@@ -54,12 +54,11 @@ function renderPlaces(places) {
            var width=bbox.max.x-bbox.min.x;
            var height=bbox.max.y-bbox.min.y;
            var depth=bbox.max.z-bbox.min.z;
-           
-           var material1 = new THREE.MeshLambertMaterial({
-            color: 0x00FF00
-          });
+           console.log(width,height,depth);
 
-           var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),material1);
+           var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),new THREE.MeshLambertMaterial({
+            color: 0x00FF00
+          }));
            mesh.add(box);
 
            /*bbox.addEventListener('click', () => {
