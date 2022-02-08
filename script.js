@@ -55,7 +55,7 @@ function renderPlaces(places) {
            var depth=bbox.max.z;
            
            const material = new THREE.MeshPhongMaterial({
-            color: 0xFF0000,
+            color: 0x00FF00,
             opacity: 0.5
           });
 
