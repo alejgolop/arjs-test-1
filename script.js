@@ -53,7 +53,8 @@ function renderPlaces(places) {
            var width=bbox.max.x-bbox.min.x;
            var height=bbox.max.y-bbox.min.y;
            var depth=bbox.max.z-bbox.min.z;
-           var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth), new THREE.MeshLambertMaterial({ color : 0xFFF0FF }) );
+           var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),
+           new THREE.MeshLambertMaterial({ color : 0xFFF044 }) );
            mesh.add(box);
 
            /*bbox.addEventListener('click', () => {
