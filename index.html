@@ -22,6 +22,7 @@
            const mesh = el.getObject3D('mesh');
            console.log(el);
            if (!mesh){
+             console.log("NO mesh");
              return;
            }
            bbox = new THREE.Box3().setFromObject(mesh);
