@@ -60,7 +60,7 @@ function renderPlaces(places) {
            box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),new THREE.MeshLambertMaterial({
             color: 0x00FF00
           }));
-          box.translateOnAxis(new THREE.Vector3( 0, 1, 0 ),bbox.max.y);
+          box.translateOnAxis(new THREE.Vector3( 0, 1, 0 ),Math.abs(bbox.min.y));
            mesh.add(box);
 
            /*bbox.addEventListener('click', () => {
