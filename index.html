@@ -16,22 +16,6 @@
           });
         },
       });
-      AFRAME.registerComponent("bboxed", {
-        init: function () {
-          const el = this.el;
-           const mesh = el.getObject3D('mesh');
-           console.log(el);
-           if (!mesh){
-             console.log("NO mesh");
-             return;
-           }
-           bbox = new THREE.Box3().setFromObject(mesh);
-           bbox.addEventListener('click', () => {
-            alert("bbox Click!");
-        });
-          el.appendChild(bbox);
-        },
-      });
     </script>
 
     <script src="script.js"></script>

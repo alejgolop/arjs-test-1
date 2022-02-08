@@ -34,13 +34,24 @@ function renderPlaces(places) {
        model.setAttribute('rotation', '0 0 0');
        model.setAttribute('animation-mixer', '');
        model.setAttribute('scale', '3 3 3');
-       model.setAttribute('bboxed', '');
        model.setAttribute('id', 'mdl');
 
        model.addEventListener('loaded', (ev) => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-           console.log(ev.target);
            console.log("Mesh Loaded");
+           console.log(ev.target);
+           const el = ev.target;
+           const mesh = el.getObject3D('mesh');
+           console.log(el);
+           if (!mesh){
+             console.log("NO mesh");
+             return;
+           }
+           bbox = new THREE.Box3().setFromObject(mesh);
+           bbox.addEventListener('click', () => {
+            alert("bbox Click!");
+        });
+          el.appendChild(bbox);
         });
    
 
