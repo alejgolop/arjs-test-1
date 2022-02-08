@@ -53,6 +53,8 @@ function renderPlaces(places) {
         });
           el.appendChild(bbox);
         });
+
+        model.addEventListener('model-loaded', () => { console.log("3D Object loaded")});
    
 
        //model.setAttribute('clickhandler', '');
