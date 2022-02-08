@@ -53,7 +53,11 @@ function renderPlaces(places) {
            var width=bbox.max.x;
            var height=bbox.max.y;
            var depth=bbox.max.z;
-           var material1 = new THREE.MeshLambertMaterial({color: 0xFFFFFF, transparent: true, opacity: 0.9});
+           var material1 = new THREE.MeshPhongMaterial({
+            color: 0xFFFFFF,
+            opacity: 0.5,
+            transparent: true,
+          });
 
            var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),material1);
            mesh.add(box);
