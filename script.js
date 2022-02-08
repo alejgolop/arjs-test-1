@@ -35,13 +35,22 @@ function renderPlaces(places) {
 
        model.addEventListener('loaded', (ev) => {
            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
+           const el = this.el;
+           const mesh = el.getObject3D('mesh');
+           if (!mesh) return;
+           const bbox = new THREE.Box3().setFromObject(mesh);
+           bbox.addEventListener('click', () => {
+            alert("bbox Click!");
+        });
+        let scene = document.querySelector('a-scene');
+           scene.appendChild(bbox);
         });
    
 
-       model.setAttribute('clickhandler', '');
-       model.addEventListener('click', () => {
-        alert("Model Click 1!");
-    });
+       //model.setAttribute('clickhandler', '');
+      /* model.addEventListener('click', () => {
+        alert("Model Click!");
+    });*/
   
        scene.appendChild(model);
 
