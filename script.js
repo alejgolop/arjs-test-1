@@ -12,8 +12,8 @@ window.onload = () => {
 
 function onMouseClick( event ) {
     console.log("Mouse Clicked");
-	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+	mouse.x = ( event.clientX / window.innerWidth );
+    mouse.y = - ( event.clientY / window.innerHeight );
     let camera = document.querySelector("[camera]").getObject3D('camera');
     raycaster.setFromCamera( mouse, camera );
     console.log(scene.children);
