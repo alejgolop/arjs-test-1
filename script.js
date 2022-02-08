@@ -55,7 +55,7 @@ function renderPlaces(places) {
            var width=bbox.max.x-bbox.min.x;
            var height=bbox.max.y-bbox.min.y;
            var depth=bbox.max.z-bbox.min.z;
-           console.log(width,height,depth);
+           alert(width,height,depth);
 
            box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),new THREE.MeshLambertMaterial({
             color: 0x00FF00
