@@ -55,9 +55,7 @@ function renderPlaces(places) {
            var depth=bbox.max.z-bbox.min.z;
            
            var material1 = new THREE.MeshLambertMaterial({
-            color: 0x00FF00,
-             opacity: 0.5,
-            transparent:true
+            color: 0x00FF00
           });
 
            var box = new THREE.Mesh( new THREE.CubeGeometry(width, height, depth),material1);
