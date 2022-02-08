@@ -54,9 +54,9 @@ function renderPlaces(places) {
            var height=bbox.max.y;
            var depth=bbox.max.z;
            
-           var material1 = new THREE.MeshPhongMaterial({
+           var material1 = new THREE.MeshLambertMaterial({
             color: 0x00FF00,
-            opacity: 0.5,
+             opacity: 0.5,
             transparent:true
           });
 
