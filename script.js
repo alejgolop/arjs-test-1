@@ -4,9 +4,9 @@ var mouse = new THREE.Vector2();
 window.onload = () => {
 
     let places = staticLoadPlaces();
-    renderPlaces(places);
+    //renderPlaces(places);
 
-    window.addEventListener( 'mouseup', onMouseClick, false );
+    //window.addEventListener( 'mouseup', onMouseClick, false );
 
 };
 
