@@ -41,7 +41,20 @@
       >
       </a-box>
 
-      <a-camera gps-camera rotation-reader> </a-camera>
+      <a-sphere 
+        clickhandler
+        radius="3" color="#DDFF00"
+        gps-entity-place="latitude: 37.76978184422391; longitude: -3.7881374359130855;"></a-sphere>
+
+        <a-text
+        value="Texto orientado a Cámara"
+        color="#5797ff"
+        look-at="[gps-camera]"
+        scale="15 15 15"
+        gps-entity-place="latitude: 37.768925267300446; longitude: -3.7874293327331543;"
+      ></a-text>
+
+      <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="minDistance: 10;maxDistance: 3000;"  rotation-reader> </a-camera>
     </a-scene>
   </body>
 </html>
