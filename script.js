@@ -37,7 +37,7 @@ function onMouseClick( event ) {
 
 var col;
 
-window.addEventListener( 'click', onMouseClick, false );
+//window.addEventListener( 'click', onMouseClick, false );
 
 function staticLoadPlaces() {
    return [
